@@ -40,7 +40,7 @@ nodemon server.js
 ### Loan Calculator Snapshots
 
 Website UI -
-![alt text](https://github.com/JohnMugambi/LoanCalculator/calculator/images/ui-snap.png)
+![UI snapshot](/calculator/images/ui-snap.png)
 
 PDF Design
-![alt text](https://github.com/JohnMugambi/LoanCalculator/calculator/images/pdf-snap.png)
+![PDF snapshot](/calculator/images/pdf-snap.png)
