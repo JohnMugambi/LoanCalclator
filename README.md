@@ -59,6 +59,8 @@ nodemon server.js
 
 ## Nodemailer configuration
 
+Edit [line](https://github.com/JohnMugambi/LoanCalculator/blob/9879d5b9b86987e20f8f3c39ec7afdd271dc2451/server/api/index.js#L81) and [line](https://github.com/JohnMugambi/LoanCalculator/blob/9879d5b9b86987e20f8f3c39ec7afdd271dc2451/server/api/index.js#L88) by adding your email address.
+
 ### Loan Calculator Snapshots
 
 Website UI -
