@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>PYC Assesment</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="" />
+    <!-- Bootstrap cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script src="    https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="pb-5">
+      <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Loan Calculator</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Dropdown link
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <section class="container mt-3">
+        <form id="loan-form" method="post">
+          <div class="form-group">
+            <label for="amount">Amount to borrow:</label>
+            <input
+              type="number"
+              name="amount"
+              id="amount"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="frequency">Payment frequency:</label>
+            <select
+              name="frequency"
+              id="frequency"
+              class="form-control"
+              required
+            >
+              <option value="">Select payment frequency</option>
+              <option value="annually">Annually</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="monthly">Monthly</option>
+              <option value="semi-annual">Every 6 Months</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="period">Loan period (in months):</label>
+            <input
+              type="number"
+              name="period"
+              id="period"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="startdate">Start date:</label>
+            <input
+              type="date"
+              name="startdate"
+              id="startdate"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="interesttype">Interest Type:</label>
+            <select
+              name="interesttype"
+              id="interesttype"
+              class="form-control"
+              required
+            >
+              <option value="">Select interest type</option>
+              <option value="flat-rate">Flat rate</option>
+              <option value="reducing-balance">Reducing balance</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+      </section>
+      <section class="container mt-3">
+        <table id="loan-table" class="display table table-striped p-3">
+          <thead class="thead-dark">
+            <tr>
+              <th style="width: 20%">Bank</th>
+              <th style="width: 10%">Amount</th>
+              <th style="width: 10%">Interest Charged</th>
+              <th style="width: 20%">Total Loan Amount</th>
+              <th style="width: 20%">Instalment Amount</th>
+              <th style="width: 20%">Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- dynamically generated rows here -->
+          </tbody>
+          <tfoot>
+            <!-- dynamically generated footer here -->
+          </tfoot>
+          <!-- <tfoot>
+            <tr>
+              <th colspan="5">Total</th>
+              <th id="total-instalments"></th>
+              <th id="total-ending-balance"></th>
+            </tr>
+          </tfoot> -->
+        </table>
+      </section>
+      <section class="container mt-3">
+        <div>Download PDF summary:</div>
+        <div>
+          <button
+            class="btn btn-primary"
+            id="generate-pdf"
+            onclick="exportPDF()"
+          >
+            Download
+          </button>
+        </div>
+      </section>
+      <section class="container mt-3">
+        <div>Send Email summary:</div>
+        <div class="form-group">
+          <label for="email_sub"></label>
+          <input
+            type="email"
+            name="email_sub"
+            id="email_sub"
+            class="form-control"
+            placeholder="Enter email address"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="sendEmail()">
+          Send
+        </button>
+      </section>
+    </div>
+    <script></script>
+    <script src="js/loan.js" async defer></script>
+  </body>
+</html>
