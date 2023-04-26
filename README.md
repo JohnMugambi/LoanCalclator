@@ -15,6 +15,26 @@ Features:
 
 - Install [Node.js](https://nodejs.org/en/) version 8.0.0
 
+## Folder structure
+
+    .
+    ├── ...
+    ├── calculator          # Client files
+    │   ├── css             # CSS files
+    │   ├── image           # Projects images
+    │   ├── js              # Script files
+    │   ├── php
+    │   └── index.htm       # Main html page
+    │
+    ├── server              # Server files
+    │   ├── api             # Routes and services
+    │   └── uploads         # PDF documents uploads
+    │
+    ├── .gitignore
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
+
 ## Getting started
 
 - Clone the repository
@@ -36,6 +56,8 @@ npm install
 cd server
 nodemon server.js
 ```
+
+## Nodemailer configuration
 
 ### Loan Calculator Snapshots
 
