@@ -36,3 +36,11 @@ npm install
 cd server
 nodemon server.js
 ```
+
+### Loan Calculator Snapshots
+
+Website UI -
+![alt text](https://github.com/JohnMugambi/LoanCalculator/calculator/images/ui-snap.png)
+
+PDF Design
+![alt text](https://github.com/JohnMugambi/LoanCalculator/calculator/images/pdf-snap.png)
